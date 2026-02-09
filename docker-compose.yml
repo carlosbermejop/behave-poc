@@ -1,0 +1,11 @@
+version: "3.3"
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: server/Dockerfile
+    image: behave-poc-server
+    volumes: # For webpack dev server to use our local files
+      - ./server:/usr/src/server
+    ports:
+      - "5000:5000" # For docker to know where to redirect HMR queries
